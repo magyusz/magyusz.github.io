@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Receptek | Magyar Gyuláné</title>
+<meta name="description" content="Kedvenc receptek kategóriákba rendezve: levesek, reggelik, főételek és édességek.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍲</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-title-key="meta.titleRecipes">
+
+<a class="skip" href="#main">Ugrás a tartalomra</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="logo-slot" id="logoSlot"><span data-i18n="logo.placeholder">LOGÓ</span></span>
+      <span class="brand-name" data-i18n="brand">Magyar Gyuláné</span>
+    </a>
+
+    <nav class="nav" id="mainNav" aria-label="Fő navigáció">
+      <a href="index.html" data-i18n="nav.home">Kezdőlap</a>
+      <a href="index.html#about" data-i18n="nav.about">Bemutatkozás</a>
+      <a href="index.html#cv" data-i18n="nav.cv">Önéletrajz</a>
+      <a href="receptek.html" class="active" data-i18n="nav.recipes">Receptek</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Kapcsolat</a>
+    </nav>
+
+    <div class="tools">
+      <div class="lang-group" role="group" aria-label="Nyelv">
+        <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      </div>
+      <button type="button" class="icon-btn" id="themeToggle" aria-label="Téma"></button>
+      <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-expanded="false" aria-label="Menü">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- LISTA NEZET -->
+  <section id="listView">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="rec.title">Receptek</h2>
+        <p data-i18n="rec.lead"></p>
+      </div>
+
+      <div class="recipe-toolbar">
+        <div class="search-field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="text" id="searchInput" data-i18n-attr="placeholder:rec.search|aria-label:rec.search">
+        </div>
+        <button type="button" class="btn btn-primary" id="addBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          <span data-i18n="rec.add">Új recept</span>
+        </button>
+        <button type="button" class="btn btn-quiet" id="exportBtn" data-i18n="rec.export">Mentés fájlba</button>
+        <button type="button" class="btn btn-quiet" id="importBtn" data-i18n="rec.import">Betöltés fájlból</button>
+        <input type="file" id="importFile" accept=".json,.js" class="hidden">
+      </div>
+
+      <div class="cat-tabs" id="catTabs" role="tablist"></div>
+
+      <div class="recipe-grid" id="recipeGrid"></div>
+      <div class="empty-state hidden" id="emptyState">
+        <span class="emoji">🍽️</span>
+        <p data-i18n="rec.empty">Ebben a kategóriában még nincs recept.</p>
+      </div>
+
+      <p class="note" data-i18n="rec.storageNote"></p>
+    </div>
+  </section>
+
+  <!-- RESZLETEK NEZET -->
+  <section id="detailView" class="hidden">
+    <div class="wrap recipe-detail" id="detailContent"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>&copy; <span id="year"></span> <span data-i18n="brand">Magyar Gyuláné</span></span>
+    <span data-i18n="footer.rights">Minden jog fenntartva.</span>
+  </div>
+</footer>
+
+<!-- URLAP -->
+<div class="modal-backdrop hidden" id="formModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="formTitle" data-i18n="form.title">Új recept hozzáadása</h2>
+      <button type="button" class="icon-btn" id="formClose" aria-label="Bezárás">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <form id="recipeForm">
+      <div class="modal-body">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fCategory" data-i18n="form.category">Kategória</label>
+            <select id="fCategory">
+              <option value="soups" data-i18n="rec.cat.soups">Levesek</option>
+              <option value="breakfast" data-i18n="rec.cat.breakfast">Reggelik</option>
+              <option value="mains" data-i18n="rec.cat.mains">Főételek</option>
+              <option value="desserts" data-i18n="rec.cat.desserts">Édességek</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fImage" data-i18n="form.image">Fénykép</label>
+            <input type="file" id="fImage" accept="image/*">
+            <div class="hint" data-i18n="form.imageHint"></div>
+            <div class="img-preview hidden" id="imgPreview"><img id="imgPreviewEl" src="" alt=""></div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fTime" data-i18n="form.time">Elkészítési idő (perc)</label>
+            <input type="number" id="fTime" min="0" step="5" value="30">
+          </div>
+          <div class="field">
+            <label for="fServings" data-i18n="form.servings">Adag</label>
+            <input type="number" id="fServings" min="1" step="1" value="4">
+          </div>
+        </div>
+
+        <div class="field">
+          <label data-i18n="form.lang">Nyelv</label>
+          <div class="form-lang-tabs" id="formLangTabs">
+            <button type="button" data-flang="hu" aria-pressed="true">HU</button>
+            <button type="button" data-flang="en" aria-pressed="false">EN</button>
+            <button type="button" data-flang="de" aria-pressed="false">DE</button>
+          </div>
+          <div class="hint" data-i18n="form.langNote"></div>
+        </div>
+
+        <div class="field">
+          <label for="fName" data-i18n="form.name">Recept neve</label>
+          <input type="text" id="fName">
+        </div>
+        <div class="field">
+          <label for="fDesc" data-i18n="form.desc">Rövid leírás</label>
+          <textarea id="fDesc" rows="2"></textarea>
+        </div>
+        <div class="field">
+          <label for="fIngredients" data-i18n="form.ingredients">Hozzávalók (soronként egy)</label>
+          <textarea id="fIngredients" rows="6"></textarea>
+        </div>
+        <div class="field">
+          <label for="fSteps" data-i18n="form.steps">Elkészítés lépései (soronként egy)</label>
+          <textarea id="fSteps" rows="6"></textarea>
+        </div>
+
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" id="formCancel" data-i18n="form.cancel">Mégsem</button>
+        <button type="submit" class="btn btn-primary" data-i18n="form.save">Mentés</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/recipes-data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/recipes.js"></script>
+</body>
+</html>

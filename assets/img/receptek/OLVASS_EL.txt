@@ -1,0 +1,3 @@
+Ide kerülhetnek a receptek fényképei, például gulyas.jpg vagy almas-pite.jpg.
+A recipes-data.js fájlban az image mezőbe így hivatkozz rájuk:
+image: "assets/img/receptek/gulyas.jpg"

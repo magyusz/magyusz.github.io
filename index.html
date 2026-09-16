@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magyar Gyuláné | Portfólió</title>
+<meta name="description" content="Magyar Gyuláné portfólió oldala: tapasztalt eladó és pénztáros, letölthető önéletrajzzal magyar, angol és német nyelven.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-title-key="meta.title">
+
+<a class="skip" href="#main">Ugrás a tartalomra</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <!-- Logó helye: ha bekerül az assets/img/logo.png, automatikusan megjelenik -->
+      <span class="logo-slot" id="logoSlot"><span data-i18n="logo.placeholder">LOGÓ</span></span>
+      <span class="brand-name" data-i18n="brand">Magyar Gyuláné</span>
+    </a>
+
+    <nav class="nav" id="mainNav" aria-label="Fő navigáció">
+      <a href="#about" data-i18n="nav.about">Bemutatkozás</a>
+      <a href="#experience" data-i18n="nav.experience">Tapasztalat</a>
+      <a href="#skills" data-i18n="nav.skills">Készségek</a>
+      <a href="#cv" data-i18n="nav.cv">Önéletrajz</a>
+      <a href="receptek.html" data-i18n="nav.recipes">Receptek</a>
+      <a href="#contact" data-i18n="nav.contact">Kapcsolat</a>
+    </nav>
+
+    <div class="tools">
+      <div class="lang-group" role="group" aria-label="Nyelv">
+        <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      </div>
+      <button type="button" class="icon-btn" id="themeToggle" aria-label="Téma"></button>
+      <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-expanded="false" aria-label="Menü">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" data-i18n="hero.eyebrow">Kereskedelem és vevőszolgálat</span>
+        <h1 data-i18n="hero.title">Tapasztalt eladó, pénztáros</h1>
+        <p class="subtitle" data-i18n="hero.subtitle">Nyitott középvezetői szerepkörre</p>
+        <p class="lead" data-i18n="hero.lead"></p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#cv">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span data-i18n="hero.ctaCv">Önéletrajz megtekintése</span>
+          </a>
+          <a class="btn btn-ghost" href="receptek.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg>
+            <span data-i18n="hero.ctaRecipes">Receptek</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- HERO kep helye: ha bekerul az assets/img/hero.jpg, automatikusan megjelenik -->
+      <div class="hero-media" id="heroMedia">
+        <div class="media-placeholder">
+          <strong data-i18n="hero.imgHint">HERO KÉP HELYE</strong>
+          <span data-i18n="hero.imgHintSub">Illeszd be ide: assets/img/hero.jpg</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEMUTATKOZAS -->
+  <section id="about" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="about.title">Bemutatkozás</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo">
+          <img src="assets/img/profil.jpg" alt="" data-i18n-attr="alt:about.photoAlt">
+        </div>
+        <div class="about-text">
+          <p data-i18n="about.text"></p>
+          <div class="stats">
+            <div class="stat"><b>25+</b><span data-i18n="stats.years">év kereskedelmi tapasztalat</span></div>
+            <div class="stat"><b>4</b><span data-i18n="stats.workplaces">munkahely</span></div>
+            <div class="stat"><b>3</b><span data-i18n="stats.langs">nyelvű önéletrajz</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAPASZTALAT -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="exp.title">Szakmai tapasztalat</h2>
+      </div>
+      <div class="timeline" id="experienceList"></div>
+    </div>
+  </section>
+
+  <!-- TANULMANYOK -->
+  <section id="education" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="edu.title">Tanulmányok</h2>
+      </div>
+      <div class="timeline" id="educationList"></div>
+    </div>
+  </section>
+
+  <!-- KESZSEGEK -->
+  <section id="skills">
+    <div class="wrap two-col">
+      <div>
+        <div class="section-head"><h2 data-i18n="skills.title">Készségek</h2></div>
+        <ul class="chip-list" id="skillsList"></ul>
+      </div>
+      <div>
+        <div class="section-head"><h2 data-i18n="comp.title">Kompetenciák és erősségek</h2></div>
+        <ul class="chip-list" id="compList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONELETRAJZ -->
+  <section id="cv" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="cv.title">Önéletrajz</h2>
+        <p data-i18n="cv.lead"></p>
+      </div>
+      <div class="cv-grid">
+
+        <article class="cv-card">
+          <span class="cv-flag">HU</span>
+          <h3 data-i18n="cv.hu">Magyar önéletrajz</h3>
+          <div class="cv-links">
+            <a class="file-link" href="doc/Magyar_Gyulane_Oneletrajz_HU.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              PDF
+            </a>
+            <a class="file-link" href="doc/Magyar_Gyulane_Oneletrajz_HU.docx" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              DOCX
+            </a>
+          </div>
+        </article>
+
+        <article class="cv-card">
+          <span class="cv-flag">EN</span>
+          <h3 data-i18n="cv.en">English CV</h3>
+          <div class="cv-links">
+            <a class="file-link" href="doc/Magyar_Gyulane_CV_EN.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              PDF
+            </a>
+            <a class="file-link" href="doc/Magyar_Gyulane_CV_EN.docx" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              DOCX
+            </a>
+          </div>
+        </article>
+
+        <article class="cv-card">
+          <span class="cv-flag">DE</span>
+          <h3 data-i18n="cv.de">Lebenslauf (Deutsch)</h3>
+          <div class="cv-links">
+            <a class="file-link" href="doc/Magyar_Gyulane_Lebenslauf_DE.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              PDF
+            </a>
+            <a class="file-link" href="doc/Magyar_Gyulane_Lebenslauf_DE.docx" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              DOCX
+            </a>
+          </div>
+        </article>
+
+      </div>
+      <p class="note" data-i18n="cv.note"></p>
+    </div>
+  </section>
+
+  <!-- KAPCSOLAT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-i18n="contact.title">Kapcsolat</h2>
+        <p data-i18n="contact.lead"></p>
+      </div>
+      <div class="contact-box">
+        <div>
+          <div class="label" data-i18n="contact.email">E-mail</div>
+          <a class="value" href="mailto:mazsuzsika@gmail.com">mazsuzsika@gmail.com</a>
+        </div>
+        <a class="btn btn-primary" href="mailto:mazsuzsika@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+          <span data-i18n="contact.email">E-mail</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>&copy; <span id="year"></span> <span data-i18n="brand">Magyar Gyuláné</span></span>
+    <span data-i18n="footer.rights">Minden jog fenntartva.</span>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/cv-data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    return n;
+  }
+
+  function renderTimelineItem(title, period, sub, items) {
+    var item = el("div", "tl-item");
+    var head = el("div", "tl-head");
+    head.appendChild(el("h3", null, title));
+    head.appendChild(el("span", "tl-period", period));
+    item.appendChild(head);
+    if (sub) item.appendChild(el("p", "tl-role", sub));
+    if (items && items.length) {
+      var ul = el("ul");
+      items.forEach(function (t) { ul.appendChild(el("li", null, t)); });
+      item.appendChild(ul);
+    }
+    return item;
+  }
+
+  function render(lang) {
+    var data = window.CV_DATA[lang] || window.CV_DATA.hu;
+
+    var exp = document.getElementById("experienceList");
+    exp.innerHTML = "";
+    data.experience.forEach(function (e) {
+      exp.appendChild(renderTimelineItem(e.company, e.period, e.role, e.tasks));
+    });
+
+    var edu = document.getElementById("educationList");
+    edu.innerHTML = "";
+    data.education.forEach(function (e) {
+      edu.appendChild(renderTimelineItem(e.school, e.period, e.qual, null));
+    });
+
+    var sk = document.getElementById("skillsList");
+    sk.innerHTML = "";
+    data.skills.forEach(function (s) { sk.appendChild(el("li", null, s)); });
+
+    var cp = document.getElementById("compList");
+    cp.innerHTML = "";
+    data.competencies.forEach(function (s) { cp.appendChild(el("li", null, s)); });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("year").textContent = new Date().getFullYear();
+    render(window.App.lang);
+    window.App.onChange(render);
+  });
+})();
+</script>
+</body>
+</html>
